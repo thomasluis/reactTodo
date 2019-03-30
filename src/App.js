@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 
+import Todo from "./components/Todo";
+
 const App = () => {
   const [todos, setTodos] = useState([
     {
@@ -19,7 +21,11 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="todo-list" />
+      <div className="todo-list">
+        {todos.map((todo, index) => (
+          <Todo key={index} index={index} todo={todo} />
+        ))}
+      </div>
     </div>
   );
 };
